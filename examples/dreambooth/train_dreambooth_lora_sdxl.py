@@ -653,6 +653,9 @@ class DreamBoothDataset(Dataset):
                 args.dataset_config_name,
                 cache_dir=args.cache_dir,
             )
+            # quick patch to load metadata from `metadata.json`
+            dataset = load_dataset("imagefolder", data_dir=args.dataset_name)
+
             # Preprocessing the datasets.
             column_names = dataset["train"].column_names
 
